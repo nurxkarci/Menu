@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Menu</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+            /* Header varsa daha iyi görünüm sağlar */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            padding-top: 40px;
+            background-color: whitesmoke;
+        }
+
+        .highlight .info {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .highlight:hover .info {
+            display: block;
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight img {
+            transition: transform 0.3s ease;
+        }
+
+        .highlight:hover img {
+            transform: scale(1.05);
+        }
+
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 18px;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        #scrollTopBtn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+        }
+
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 40px;
+            background: #222;
+            color: #fff;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            z-index: 9999;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            padding-left: 0.5rem;
+        }
+
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll-left 30s linear infinite;
+        }
+
+        .marquee-content span {
+            margin: 0 1rem;
+            display: inline-block;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar" style="width: 100%;background-color: #D99A4e;height: 50px;">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span>Grilled Chicken Skewers – Tender and Juicy</span> |
+                <span>Homemade Pasta – Crafted with Love</span> |
+                <span>Signature Beef Burger – 100% Angus</span> |
+                <span>Fresh Garden Salad – Light and Crisp</span> |
+                <span>Spicy Shrimp Tacos – A Zesty Delight</span> |
+                <span>Chocolate Lava Cake – Melted Heaven Inside</span> |
+
+                <!-- Aynı metnin tekrar eden kopyası -->
+                <span>Grilled Chicken Skewers – Tender and Juicy</span> |
+                <span>Homemade Pasta – Crafted with Love</span> |
+                <span>Signature Beef Burger – 100% Angus</span> |
+                <span>Fresh Garden Salad – Light and Crisp</span> |
+                <span>Spicy Shrimp Tacos – A Zesty Delight</span> |
+                <span>Chocolate Lava Cake – Melted Heaven Inside</span>
+            </div>
+        </div>
+    </div>
+    <h2
+        style="text-align: center;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 55px;margin-top: 10px;">
+        MENU</h2>
+    <h2
+        style="text-align: center;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 55px;margin-top: -55px;">
+        HIGHLIGHTS</h2>
+
+    <div data-target="#DRINKS" class="highlight"
+        style="background-color: whitesmoke;width: 250px;height: 400px;margin-left: 300px;">
+        <img src="merlot4.jpg" style="width: 250px;height: 200px;">
+        <p
+            style="font-weight: bold;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: x-large;">
+            Merlot</p>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <hr style="border: 1px solid #D99A4e; width: 100%;">
+        <p class="info"
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            "Merlot is a smooth, medium-bodied red wine known for its soft tannins and flavors of plum, cherry, and
+            chocolate." </p>
+    </div>
+
+    <div data-target="#STARTERS" class="highlight"
+        style="background-color: whitesmoke;width: 250px;height: 400px;margin-left: 650px;margin-top: -400px;">
+        <img src="mini.jpg" style="width: 250px;height: 200px;">
+        <p
+            style="font-weight: bold;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: x-large;">
+            Mini Croque Bites</p>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+        <hr style="border: 1px solid #D99A4e; width: 100%;">
+        <p class="info"
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            "Mini Croque Bites are crispy, bite-sized sandwiches filled with ham and melted cheese, inspired by the
+            classic French Croque Monsieur."
+        </p>
+    </div>
+
+    <div data-target="#SALADS" class="highlight"
+        style="background-color: whitesmoke;width: 250px;height: 400px;margin-left: 1000px;margin-top: -400px;">
+        <img src="quinoa.jpg" style="width: 250px;height: 200px;">
+        <p
+            style="font-weight: bold;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: x-large;">
+            Quinoa Superfood</p>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <hr style="border: 1px solid #D99A4e; width: 100%;">
+        <p class="info"
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            "The Quinoa Superfood Bowl is a nutrient-packed dish featuring quinoa, fresh vegetables and leafy greens for
+            a healthy, energizing meal."
+        </p>
+    </div>
+
+    <div data-target="#MAIN" class="highlight"
+        style="background-color: whitesmoke;width: 250px;height: 400px;margin-left: 300px; margin-top: 50px;">
+        <img src="4.jpg" style="width: 250px;height: 200px;">
+        <p
+            style="font-weight: bold;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: x-large;">
+            Grilled Ribeye Steak</p>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <hr style="border: 1px solid #D99A4e; width: 100%;">
+        <p class="info"
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            "Grilled Ribeye Steak is a tender, juicy cut of beef, perfectly seared to bring out its rich, smoky
+            flavors." </p>
+    </div>
+
+    <div data-target="#SIDES" class="highlight"
+        style="background-color: whitesmoke;width: 250px;height: 400px;margin-left: 650px;margin-top: -400px;">
+        <img src="teriyaki.jpg" style="width: 250px;height: 200px;">
+        <p
+            style="font-weight: bold;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: x-large;">
+            Salmon Teriyaki</p>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+        <hr style="border: 1px solid #D99A4e; width: 100%;">
+        <p class="info"
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            "Salmon Teriyaki features tender grilled salmon glazed with a sweet and savory teriyaki sauce." </p>
+    </div>
+
+    <div data-target="#DESSERTS" class="highlight"
+        style="background-color: whitesmoke;width: 250px;height: 400px;margin-left: 1000px;margin-top: -400px;">
+        <img src="fondant.jpg" style="width: 250px;height: 200px;">
+        <p
+            style="font-weight: bold;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: x-large;">
+            Chocolate Fondant</p>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <hr style="border: 1px solid #D99A4e; width: 100%;">
+        <p class="info"
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            "Chocolate Fondant is a rich, warm dessert with a gooey, molten chocolate center." </p>
+    </div>
+
+    <div class="highlight"
+        style="width:962px;height: 220px;background-color: whitesmoke;margin-left: 298px;margin-top: 30px;">
+        <img src="7.jpg" style="width: 220px;height: 220px;">
+
+        <p
+            style="margin-left: 230px;margin-top: -180px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            A rich variety of authentic <br> regional delicacies is included <br> on the menu,
+            reflecting the <br> essence of
+            local
+            culinary <br>heritage.</p>
+
+        <img src="9.jpg" style="width: 220px;height: 220px;margin-left: 495px;margin-top: -184px;">
+        <p
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;margin-left: 740px;margin-top: -185px;">
+            A selection of flavorful Far Eastern <br> dishes is thoughtfully incorporated <br> into the menu, bringing
+            the essence
+            of <br> Asian cuisine to your table.</p>
+    </div>
+
+    <h2
+        style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;margin-left: 300px;font-size:45px;margin-top: 70px;">
+        DRINKS</h2>
+
+    <div id="DRINKS"
+        style="background-color:whitesmoke;width: 963px;height: 10000px;margin-left: 298px;margin-top: 5px;">
+
+        <hr style="border: 5px solid #D99A4e; width: 100%;">
+
+        <h2
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;margin-bottom: -40px;">
+            Coffees</h2>
+
+        <div style="background-color: whitesmoke;width: 963px;height: 250px;margin-top: 50px;">
+            <img src="d3.jpg" style="width: 250px;height: 250px;">
+            <p
+                style="margin-left: 300px;margin-top: -250px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:medium;font-size: 20px;">
+                Espresso...........45.00...........5 kcal <br>
+                Americano........48.00........... 10 kcal <br>
+                Latte.................52.00........... 150 kcal <br>
+                Cappuccino.......52.00........... 120 kcal <br>
+                Mocha...............55.00........... 250 kcal <br>
+                Flat White..........53.00........... 170 kcal <br>
+                Macchiato..........50.00........... 90 kcal <br>
+                Frappe...............58.00........... 220 kcal
+
+
+
+            </p>
+        </div>
+
+        <h2
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            Cold Drinks</h2>
+
+        <div style="background-color: whitesmoke;width: 963px;height: 280px;">
+            <img src="d5.jpg" style="width: 250px;height: 280px;">
+            <p
+                style="margin-left: 120px;margin-top: -250px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:medium;font-size: 18px;margin-left: 300px">
+
+                Strawberry Lemonade...........45.00............150 kcal <br>
+                Mango Smoothie...................55.00............220 kcal <br>
+                Watermelon Cooler...............48.00............130 kcal <br>
+                Pineapple Mint Juice..............50.00............140 kcal<br>
+                Blueberry Lemon Fizz............52.00............160 kcal<br>
+                Honey Citrus Iced Tea............40.00............90 kcal <br>
+                Passion Fruit Soda..................55.00...........170 kcal<br>
+                Tropical Fruit Punch...............60.00............210 kcal
+            </p>
+        </div>
+
+        <h2
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            Cocktails</h2>
+
+        <div style="background-color: whitesmoke;width: 963px;height: 250px;">
+            <img src="d9.jpg" style="width: 250px;height: 250px;">
+            <p
+                style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 18px;margin-left: 300px;margin-top: -230px;">
+                Strawberry Daiquiri.........75.00..........210 kcal <br>
+                Mango Margarita.............80.00..........230 kcal <br>
+                Peach Bellini....................85.00..........200 kcal <br>
+                Watermelon Mojito...........78.00.........190 kcal <br>
+                Tropical Rum Punch..........85.00.........240 kcal <br>
+                Pineapple Coconut Punch..82.00.........220 kcal <br>
+                Honey Citrus Mule.............74.00.........170 kcal
+
+            </p>
+        </div>
+
+        <h2
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            Wine</h2>
+
+        <div style="background-color: whitesmoke;width: 963px;height: 250px;">
+            <img src="d13.jpg" style="width: 250px;height: 250px;">
+            <p
+                style="margin-left: 300px;margin-top: -250px;font-size: 18px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                Cabernet Sauvignon..........95.00..........125 kcal <br>
+                Merlot...............................90.00..........120 kcal <br>
+                Pinot Noir.........................100.00........115 kcal <br>
+                Shiraz...............................98.00..........130 kcal <br>
+                Chardonnay......................92.00..........120 kcal <br>
+                Sauvignon Blanc...............94.00..........115 kcal <br>
+                Moscato............................85.00.........140 kcal <br>
+                Prosecco...........................105.00........90 kcal
+
+            </p>
+        </div>
+
+        <hr style="border: 5px solid #D99A4e; width: 100%;">
+
+        <h2 id="STARTERS"
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:45px;margin-top: 70px;text-align: left;">
+            STARTERS / APPETIZERS</h2>
+
+        <hr style="border: 5px solid #D99A4e; width: 100%;">
+
+        <img src="a5.jpg" style="width: 300px;height: 400px;"><br>
+
+        <p
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 18px;margin-left: 320px;margin-top: -400px;">
+            Burrata & Roasted Tomatoes.....85.00.....320 kcal <br>
+            ↪ Burrata, roasted cherry tomatoes, basil oil <br><br>
+            Smoked Salmon Tartare.....90.00.....280 kcal <br>
+            ↪ Lemon crème fraîche, capers, shallots <br><br>
+            Wild Mushroom Arancini.....75.00.....350 kcal <br>
+            ↪ Mushroom risotto balls, truffle aioli <br><br>
+            Charred Broccolini.....60.00.....150 kcal <br>
+            ↪ Lemon zest, almond flakes, parmesan <br><br>
+            Chicken Liver Pâté.....70.00.....400 kcal <br>
+            ↪ Brioche, cranberry jelly, pickled onions
+        </p>
+        <p
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 18px;margin-top: 50px;">
+            Garlic Prawns.....110.00.....290 kcal <br>
+            ↪ Olive oil and garlic prawns <br><br>
+            Confit Garlic Potato Wedges.....55.00.....250 kcal <br>
+            ↪ Crispy potato wedges with garlic butter <br><br>
+            Goat Cheese & Beetroot Tartlet....65.00...310 kcal <br>
+            ↪ Goat cheese, beetroot, mini tart <br><br>
+            Mini Croque Bites.....80.00.....420 kcal <br>
+            ↪ Mini croque monsieur with gruyere and ham
+        </p>
+
+
+        <img src="a6.jpg" style="width: 400px;height: 400px;">
+
+        <img src="a4.jpg" style="width: 400px;height: 400px;margin-left: 55px;">
+
+        <hr style="border: 5px solid #D99A4e; width: 100%;">
+        <h2 id="SALADS"
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:45px;margin-top: 70px;text-align: left;">
+            SALADS</h2>
+        <hr style="border: 5px solid #D99A4e; width: 100%;">
+        <img src="s1.jpg" style="width: 200px;height: 200px;"> <br>
+        <img src="s2.jpg" style="width: 200px;height: 200px;"> <br>
+        <img src="s9.jpg" style="width: 200px;height: 200px;"> <br>
+        <img src="s8.jpg" style="width: 200px;height: 200px;">
+        <p
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 18px;margin-left: 280px;margin-top: -800px;">
+            Green Goddess Salad..........70.00..........230 kcal <br>
+            ↪ Spinach, arugula, avocado, lime-yogurt dressing <br><br>
+            Heirloom Tomato & Burrata..........76.00.........260 kcal <br>
+            ↪ Heirloom tomatoes, burrata, basil oil <br><br>
+            Pear & Blue Cheese.........80.00........290 kcal <br>
+            ↪ Caramelized pear, gorgonzola, walnuts, frisée lettuce <br><br>
+            Roasted Pumpkin & Feta Salad........70.00........270 kcal <br>
+            ↪ Roasted pumpkin, feta cheese, pumpkin seeds <br><br>
+            Nicoise Salad........95.00.........350 kcal <br>
+            ↪ Grilled tuna, boiled egg, potatoes <br><br>
+            Goat Cheese & Beetroot.........75.00........280 kcal <br>
+            ↪ Goat cheese, beetroot, walnuts, pomegranate molasses <br><br>
+            Quinoa Superfood Bowl........80.00........301 kcal <br>
+            ↪ Quinoa, beetroot, avocado, pomegranate, tahini-lemon sauce <br><br>
+            Grilled Halloumi Salad........75.00.......290 kcal <br>
+            ↪ Grilled halloumi, zucchini, tahini-yogurt sauce <br><br>
+            Chickpea & Cucumber Salad........60.00..........250 kcal <br>
+            ↪ Chickpeas, cucumber, mint, lemon, sumac <br><br>
+            Lobster & Mango Salad.......150.00........320 kcal <br>
+            ↪ Boiled lobster, mango, avocado, lime dressing
+        </p>
+
+        <hr style="border: 5px solid #D99A4e; width: 100%;">
+        <h2 id="MAIN"
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:45px;margin-top: 70px;text-align: left;">
+            MAIN COURSES</h2>
+        <hr style="border: 5px solid #D99A4e; width: 100%;">
+
+        <div style="width: 963px;height: 1200px;background-color: whitesmoke;">
+
+            <img src="m6.jpg" style="width: 400px; height: 400px;border-radius: 50%;margin-left: 560px;">
+            <p
+                style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 18px;margin-top: -400px;margin-left: 30px;">
+                Grilled Ribeye Steak........210.00........850 kcal <br>
+                ↪ 300g ribeye steak, garlic potatoes, onions <br><br>
+                Pan-Seared Sea Bass.......180.00.......520 kcal <br>
+                ↪ Fennel, orange, capers, lemon butter sauce <br><br>
+                Wild Mushroom Tagliatelle.......145.00........650 kcal <br>
+                ↪ Creamy porcini sauce, truffle oil, parmesan <br><br>
+                Duck Breast with Cherry Glaze........190.00........680 kcal <br>
+                ↪ Beetroot purée, cherry sauce <br><br>
+                Roasted Cauliflower Steak........140.00........350 kcal <br>
+                ↪ Chimichurri sauce, hazelnut crumble, roasted tomatoes <br><br>
+                Pork Tenderloin with Jus........175.00.......600 kcal <br>
+                ↪ Apple cider sauce, mustard, creamy potatoes <br><br>
+                Lobster Risotto.........220.00.........700 kcal <br>
+                ↪ Shrimp & lobster, white wine, lemon flavor
+            </p>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+            <img src="m7.jpg" style="width: 400px;height: 400px;border-radius: 50%;margin-top: -300px;">
+            <p
+                style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 18px;margin-left: 440px;margin-top: -400px;">
+                Butternut Squash Ravioli.......150.00.......560 kcal <br>
+                ↪ Ricotta filled, butter-sage sauce <br><br>
+                Corn-Fed Chicken Supreme......165.00.......580 kcal <br>
+                ↪ Mashed potatoes, green beans, rosemary jus <br><br>
+                Grilled Lamb Rump.......195.00......720 kcal <br>
+                ↪ Roasted potatoes, mint pea purée, red wine sauce <br><br>
+                Seafood Linguine......190.00......680 kcal <br>
+                ↪ Octopus, shrimp, mussels, white wine sauce <br><br>
+                Stuffed Zucchini with Couscous......130.00......480 kcal <br>
+                ↪ Couscous with mint, charred vegetables <br><br>
+                Pan-Roasted Salmon with Dill......185.00......540 kcal <br>
+                ↪ Celery purée, seasonal vegetables, dill cream <br><br>
+                Truffle Chicken Alfredo.......175.00......740 kcal <br>
+                ↪ Fettuccine, truffle cream chicken, mushrooms, parmesan
+
+            </p>
+        </div>
+        <hr style="border: 5px solid #D99A4e; width: 100%;">
+        <h2 id="SIDES"
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:45px;margin-top: 70px;text-align: left;">
+            SIDES</h2>
+        <hr style="border: 5px solid #D99A4e; width: 100%;">
+
+        <img src="si1.jpg" style="width: 237px;height: 237px;border-radius:10px ;">
+        <img src="si2.jpg" style="width: 237px;height: 237px;border-radius:10px ;">
+        <img src="si3.jpg" style="width: 237px;height: 237px;border-radius:10px ;">
+        <img src="si4.jpg" style="width: 237px;height: 237px;border-radius:10px ;">
+        <p
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 16px;margin-left: 20px;">
+            Garlic & Herb Baby Potatoes..........50.00..........220 kcal<br>
+            ↪ Baby potatoes with garlic butter and herbs <br><br>
+            Sautéed Greens.........50.00...........180 kcal <br>
+            ↪ Broccolini, chard, spinach sautéed with olive oil & garlic <br><br>
+            Parmesan Truffle Fries.........65.00..........410 kcal <br>
+            ↪ Crispy fries with truffle oil and parmesan <br><br>
+            Creamy Polenta........60.00........270 kcal <br>
+            ↪ Parmesan, butter classic Italian side <br><br>
+            Roasted Root Vegetables........55.00.......200 kcal <br>
+            ↪ Roasted carrot, beetroot, sweet potato, rosemary, balsamic <br><br>
+            Garlic Mushrooms with Thyme.......60.00........190 kcal <br>
+            ↪ Sautéed mushrooms with garlic, thyme, butter <br><br>
+            Warm Rustic Bread Basket........35.00.........250 kcal <br>
+            ↪ Mini baguettes served with olive oil and balsamic <br><br>
+            Grilled Corn with Paprika Butter........50.00........230 kcal <br>
+            ↪ Grilled corn with smoked paprika butter and lime
+        </p>
+        <p
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 16px;margin-left: 517px;margin-top: -588px;">
+            Thai Green Curry.........145.00.........650 kcal <br>
+            ↪ Aromatic green curry with coconut milk, chicken, bamboo shoots, and fresh basil — served with jasmine
+            rice. <br><br>
+            Korean Bibimbap..........155.00........750 kcal <br>
+            ↪ Mixed rice bowl with sautéed vegetables, marinated beef, fried egg, and spicy gochujang sauce. <br><br>
+            Japanese Salmon Teriyaki..........180.00..........520 kcal <br>
+            ↪ Grilled salmon glazed with teriyaki sauce, served with steamed rice and sautéed bok choy. <br><br>
+            Dim Sum Platter..........120.00.........400 kcal <br>
+            ↪ Assortment of steamed dumplings including shrimp har gow, pork siu mai, and vegetable buns. <br><br>
+            Vietnamese Pho...........130.00..........450 kcal <br>
+            ↪ Traditional beef noodle soup with fragrant herbs, lime, and chili. <br><br>
+            Spicy Sichuan Noodles..........125.00........620 kcal <br>
+            ↪ Wheat noodles tossed in a bold Sichuan pepper sauce with garlic, chili oil, crushed peanuts, and scallions
+            — a fiery and flavorful classic.
+        </p>
+
+        <img src="si5.jpg" style="width: 237px;height: 237px;border-radius:10px ;">
+        <img src="si6.jpg" style="width: 237px;height: 237px;border-radius:10px ;">
+        <img src="si7.jpg" style="width: 237px;height: 237px;border-radius:10px ;">
+        <img src="si8.jpg" style="width: 237px;height: 237px;border-radius:10px ;">
+
+        <hr style="border: 5px solid #D99A4e; width: 100%;">
+        <h2 id="DESSERTS"
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:45px;margin-top: 70px;text-align: left;">
+            DESSERTS</h2>
+        <hr style="border: 5px solid #D99A4e; width: 100%;">
+
+        <img src="t6.png" style="width: 400px;height: 400px;">
+
+        <p
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 18px;margin-left: 430px;margin-top: -320px;">
+            Lemon Posset with Berries........60.00.......280 kcal <br>
+            ↪ Creamy lemon posset, forest berries <br><br>
+            Classic Crème Brûlée........65.00........320 kcal <br>
+            ↪ Vanilla custard with caramelized sugar crust <br><br>
+            Chocolate Fondant..........70.00.........300 kcal <br>
+            ↪ Molten chocolate cake with vanilla ice cream <br><br>
+
+        </p>
+        <p
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 18px;margin-left: 10px;margin-top: 100px;">
+            Pistachio & Rosewater Panna Cotta......70.00.......300 kcal <br>
+            ↪ Rosewater panna cotta, pistachio, fresh fruits <br><br>
+            Apple Tarte Tatin........70.00.........420 kcal <br>
+            ↪ Caramelized apple tart with butter pastry and vanilla sauce <br><br>
+            Berry & Almond Frangipane Tart........65.00.........390 kcal <br>
+            ↪ Almond cream tart topped with fresh berries
+        </p>
+        <img src="t4.png" style="width: 300px;height: 300px;margin-left: 620px;margin-top: -300px;">
+        <img src="t1.png" style="width: 400px;height: 400px;margin-top: 60px;margin-left: 40px;">
+
+        <p
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 18px;margin-left: 480px;margin-top: -370px;">
+            Affogato al Caffè.........50.00.........220 kcal <br>
+            ↪ Espresso poured over vanilla ice cream <br><br>
+            Hazelnut Chocolate Mousse........65.00........350 kcal <br>
+            ↪ Rich chocolate and hazelnut mousse dusted with cocoa <br><br>
+            Tiramisu..........70.00.........410 kcal <br>
+            ↪ Classic Italian coffee-flavored mascarpone dessert
+        </p>
+
+        <hr style="border: 5px solid #D99A4e; width: 100%;margin-top: 150px;">
+
+        <img src="süs.png" style="width: 200px;height: 200px;">
+        <p
+            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 22px;margin-left: 150px;margin-top: -100px;">
+            Please inform our staff if you have any dietary restrictions or allergies.</p>
+
+    </div>
+
+    <button id="scrollTopBtn">↑</button>
+
+    <script>
+        //Resme tıklayınca kaydırma
+        document.querySelectorAll('.highlight').forEach(item => {
+            item.addEventListener('click', () => {
+                const targetId = item.getAttribute('data-target');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        //Butona basınca yukarı çıkma
+        const btn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>
